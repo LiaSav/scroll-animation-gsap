@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$index: calc(1vw + 1vh);
+$color-title: #f4efec;
+$color-text: #cdc6c3;
+$gallery-gap: calc($index * 10);
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Outfit";
+}
+
+// to remove stutter
+// add to changing elements
+// will-change property
+// to show the browser
+// that this element moves smoothly
+// it needs more hardware resources
+// so that the page is displayed correctly
+.content,
+.first-section__image,
+.first-section__header,
+.second-section__gallery-column_left,
+.second-section__gallery-column_right {
+    will-change: transform;
+}
+
+body {
+    font-family: "Raleway";
+    color: #fafafa;
+    background-image: url("../img/bg.jpg");
+    background-size: 50px;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 0 7vw;
+}
+
+.first-section {
+    position: relative;
+    min-height: 100vh;
+
+    &__image {
+        width: -webkit-fill-available;
+        position: absolute;
+        top: 5vh;
+        left: 35vw;
+        z-index: -1;
+    }
+
+    &__header {
+        font-size: calc($index * 8);
+        position: absolute;
+        width: min-content;
+        bottom: 12vh;
+        line-height: .9;
+    }
+}
+
+.second-section {
+    padding: calc($index * 8) 0;
+
+    &__gallery {
+        display: flex;
+    }
+
+    &__gallery-column {
+        flex: 0 1 50%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        &_left {
+            margin-top: calc($gallery-gap * 1.75);
+        }
+
+        &_right .second-section__gallery-item {
+            margin: 0;
+            margin-top: $gallery-gap;
+        }
+    }
+
+    &__gallery-item {
+        max-width: calc($index * 21);
+        margin-bottom: $gallery-gap;
+        border-radius: 8px;
+    }
+
+    &__gallery-text {
+        position: relative;
+        color: $color-text;
+    }
+
+    &__gallery-title {
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+        line-height: 2.4rem;
+        color: $color-title;
+    }
+
+    &__gallery-paragraph {
+        line-height: 1.75;
+    }
+}
+
+@media (max-width: 992.98px) {
+    .second-section {
+        &__gallery {
+            display: block;
+        }
+
+        &__gallery-column {
+            width: 100%;
+
+            &_left {
+                margin-top: 0;
+            }
+
+            &_right .second-section__gallery-item {
+                margin-bottom: $gallery-gap;
+                margin-top: 0;
+            }
+        }
+    }
+}

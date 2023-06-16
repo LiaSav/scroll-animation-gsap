@@ -1,0 +1,11 @@
+@font-face {
+    font-family: Outfit;
+    src: url("../fonts/outfit-regular.woff2") format('woff2'),
+        url("../fonts/outfit-regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url("../fonts/raleway-regular.woff2") format('woff2'),
+        url("../fonts/raleway-regular.ttf") format('truetype');
+}
